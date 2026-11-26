@@ -20,6 +20,7 @@ def main() -> None:
     output_path.write_text(LINE + "\n", encoding="utf-8")
 
     text = output_path.read_text(encoding="utf-8")
+    assert text == LINE + "\n", "round-trip mismatch: file content differs from LINE"
     lines = text.splitlines()
     assert len(lines) == 1, f"expected exactly one line, got {len(lines)}"
     line = lines[0]
